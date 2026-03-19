@@ -12,15 +12,18 @@
 html { scroll-behavior: smooth; }
 body { background-color: #080810; color: #f0eeff; font-family: 'Outfit', Arial, sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
+/* CURSOR */
 .cursor { position: fixed; width: 10px; height: 10px; border-radius: 50%; background: #00ff88; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: screen; }
 .cursor-ring { position: fixed; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid rgba(124,58,237,.6); pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all .12s ease; }
 
+/* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 4rem; background: rgba(8,8,16,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
 .nav-logo { font-family: 'Syne', Arial, sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: -.5px; color: #f0eeff; }
 .nav-logo .dot { color: #00ff88; }
 .nav-cta { background: #7c3aed; color: #fff; border: none; padding: .6rem 1.4rem; font-family: 'Outfit', Arial, sans-serif; font-weight: 500; font-size: .85rem; border-radius: 8px; cursor: pointer; transition: all .2s; box-shadow: 0 0 20px rgba(124,58,237,.35); }
-.nav-cta:hover { background: #9b5cf6; transform: translateY(-1px); }
+.nav-cta:hover { background: #9b5cf6; transform: translateY(-1px); box-shadow: 0 0 30px rgba(124,58,237,.5); }
 
+/* HERO */
 .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 5rem; position: relative; overflow: hidden; }
 .hero-orb1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(124,58,237,.22) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; animation: float 8s ease-in-out infinite; }
 .hero-orb2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,255,136,.12) 0%, transparent 70%); bottom: 0; left: 10%; pointer-events: none; animation: float 10s ease-in-out infinite reverse; }
@@ -46,18 +49,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .metric-num span { color: #00ff88; }
 .metric-label { font-size: .78rem; color: #6b6b8a; margin-top: 4px; letter-spacing: .3px; }
 
+/* MARQUEE */
 .marquee-wrap { padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); overflow: hidden; background: #0e0e1a; }
 .marquee-track { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 25s linear infinite; width: max-content; }
 .marquee-item { font-size: .78rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #6b6b8a; flex-shrink: 0; display: inline-flex; align-items: center; gap: 1rem; }
 .marquee-item::after { content: '\00B7'; color: #7c3aed; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
+/* SECTIONS */
 section { padding: 6rem 4rem; position: relative; }
 .s-label { font-size: .7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #00ff88; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
 .s-label::before { content: ''; width: 20px; height: 1px; background: #00ff88; display: inline-block; flex-shrink: 0; }
 .s-title { font-family: 'Syne', Arial, sans-serif; font-weight: 800; font-size: clamp(2rem,4vw,3.2rem); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1rem; color: #f0eeff; }
 .s-sub { color: #9898b8; font-size: 1rem; line-height: 1.75; max-width: 500px; font-weight: 300; }
 
+/* PROBLEMA */
 .problem-bg { background-color: #0e0e1a; }
 .problems { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1px; margin-top: 3.5rem; }
 .problem-item { background: #13131f; padding: 2.5rem 2rem; transition: background .3s; position: relative; overflow: hidden; }
@@ -68,9 +74,12 @@ section { padding: 6rem 4rem; position: relative; }
 .p-title { font-family: 'Syne', Arial, sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: .6rem; color: #f0eeff; }
 .p-desc { font-size: .875rem; color: #6b6b8a; line-height: 1.65; }
 
+/* PILARES */
 .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); gap: 1.5rem; margin-top: 3.5rem; }
 .pillar { background: #0e0e1a; border: 1px solid rgba(124,58,237,.2); border-radius: 16px; padding: 2.5rem; transition: all .3s; position: relative; overflow: hidden; }
+.pillar::after { content: ''; position: absolute; inset: 0; border-radius: 16px; background: radial-gradient(circle at 50% 0%, rgba(124,58,237,.1), transparent 70%); opacity: 0; transition: opacity .3s; pointer-events: none; }
 .pillar:hover { border-color: #7c3aed; transform: translateY(-4px); box-shadow: 0 20px 60px rgba(124,58,237,.15); }
+.pillar:hover::after { opacity: 1; }
 .pillar-tag { display: inline-block; font-size: .65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9b5cf6; background: rgba(124,58,237,.12); border: 1px solid rgba(124,58,237,.22); padding: 3px 10px; border-radius: 4px; margin-bottom: 1.25rem; }
 .pillar-title { font-family: 'Syne', Arial, sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: .75rem; color: #f0eeff; }
 .pillar-desc { font-size: .875rem; color: #6b6b8a; line-height: 1.65; margin-bottom: 1.75rem; }
@@ -78,6 +87,7 @@ section { padding: 6rem 4rem; position: relative; }
 .pillar-list li { font-size: .82rem; color: #9898b8; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
 .pillar-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #00ff88; flex-shrink: 0; margin-top: 5px; display: inline-block; }
 
+/* BUILDER */
 .builder-bg { background-color: #0e0e1a; }
 .builder-steps { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 3rem; max-width: 900px; }
 .b-step { display: flex; align-items: center; gap: 10px; background: #13131f; border: 1px solid rgba(255,255,255,.07); border-radius: 99px; padding: .6rem 1.2rem; font-size: .82rem; font-weight: 500; color: #9898b8; transition: all .25s; cursor: pointer; }
@@ -87,7 +97,7 @@ section { padding: 6rem 4rem; position: relative; }
 .b-step.active .b-step-num { background: rgba(0,255,136,.2); color: #00ff88; }
 
 .builder-detail { margin-top: 3rem; display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1000px; }
-.b-detail-card { background: #13131f; border: 1px solid rgba(124,58,237,.18); border-radius: 12px; padding: 1.75rem; }
+.b-detail-card { background: #13131f; border: 1px solid rgba(124,58,237,.18); border-radius: 12px; padding: 1.75rem; transition: all .3s; }
 .b-detail-card.ai-card { border-color: rgba(0,255,136,.22); background: linear-gradient(135deg,rgba(0,255,136,.05),#13131f); }
 .b-detail-card.ai-card:hover { border-color: rgba(0,255,136,.4); box-shadow: 0 0 30px rgba(0,255,136,.08); }
 .b-detail-title { font-family: 'Syne', Arial, sans-serif; font-weight: 700; font-size: .95rem; margin-bottom: .5rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: #f0eeff; }
@@ -97,6 +107,7 @@ section { padding: 6rem 4rem; position: relative; }
 .b-hint { font-size: .75rem; color: #9898b8; display: flex; align-items: flex-start; gap: 8px; line-height: 1.35; }
 .b-hint-icon { color: #00ff88; flex-shrink: 0; }
 
+/* DIFERENCIAL */
 .diff-table { width: 100%; max-width: 800px; margin-top: 3rem; border-collapse: collapse; }
 .diff-table th { font-family: 'Syne', Arial, sans-serif; font-weight: 700; font-size: .8rem; letter-spacing: 1px; text-transform: uppercase; padding: 1rem 1.5rem; text-align: left; border-bottom: 1px solid rgba(124,58,237,.2); }
 .diff-table th:first-child { color: #6b6b8a; }
@@ -107,6 +118,7 @@ section { padding: 6rem 4rem; position: relative; }
 .diff-table td:last-child::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #00ff88; flex-shrink: 0; display: inline-block; }
 .diff-table tr:hover td { background: rgba(124,58,237,.04); }
 
+/* PERFIS */
 .profiles-bg { background-color: #0e0e1a; }
 .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.25rem; margin-top: 3rem; }
 .profile-card { background: #13131f; border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 1.75rem; transition: all .3s; }
@@ -116,6 +128,7 @@ section { padding: 6rem 4rem; position: relative; }
 .profile-pain { font-size: .82rem; color: #6b6b8a; line-height: 1.55; margin-bottom: 1rem; }
 .profile-solve { font-size: .72rem; font-weight: 600; letter-spacing: .5px; color: #00ff88; background: rgba(0,255,136,.12); border: 1px solid rgba(0,255,136,.18); padding: 3px 10px; border-radius: 4px; display: inline-block; }
 
+/* TEAM */
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.5rem; margin-top: 3rem; }
 .team-card { background: #0e0e1a; border: 1px solid rgba(124,58,237,.18); border-radius: 14px; padding: 2rem; transition: all .3s; }
 .team-card:hover { border-color: #7c3aed; box-shadow: 0 0 40px rgba(124,58,237,.12); }
@@ -127,6 +140,7 @@ section { padding: 6rem 4rem; position: relative; }
 .team-link:hover { color: #9b5cf6; }
 .team-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
 
+/* CTA */
 .cta-section { text-align: center; padding: 8rem 4rem; position: relative; overflow: hidden; background-color: #0e0e1a; }
 .cta-orb { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle,rgba(124,58,237,.13) 0%,transparent 65%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
 .cta-green-orb { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle,rgba(0,255,136,.07) 0%,transparent 65%); top: 20%; left: 20%; pointer-events: none; }
@@ -134,6 +148,7 @@ section { padding: 6rem 4rem; position: relative; }
 .cta-title .green { color: #00ff88; }
 .cta-sub { font-size: 1rem; color: #9898b8; max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; font-weight: 300; position: relative; }
 
+/* FORM */
 .waitlist-form { max-width: 520px; margin: 0 auto; position: relative; }
 .form-group { display: flex; flex-direction: column; gap: .75rem; }
 .form-row { display: flex; gap: .75rem; flex-wrap: wrap; }
@@ -153,11 +168,11 @@ section { padding: 6rem 4rem; position: relative; }
 .success-icon { width: 56px; height: 56px; border-radius: 50%; border: 2px solid #00ff88; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: .5rem; }
 .success-title { font-family: 'Syne', Arial, sans-serif; font-weight: 700; font-size: 1.2rem; }
 .success-sub { font-size: .875rem; color: #9898b8; }
-
 .cta-trust { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; position: relative; }
 .trust-item { font-size: .75rem; color: #6b6b8a; display: flex; align-items: center; gap: 6px; }
 .trust-item::before { content: '\2713'; color: #00ff88; font-size: .65rem; }
 
+/* FOOTER */
 footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
 .footer-logo { font-family: 'Syne', Arial, sans-serif; font-weight: 800; font-size: 1.2rem; color: #f0eeff; }
 .footer-logo .dot { color: #00ff88; }
@@ -166,6 +181,7 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
 .footer-contact a:hover { color: #9898b8; }
 .footer-copy { font-size: .75rem; color: #333355; }
 
+/* RESPONSIVE */
 @media (max-width:900px) { .builder-detail { grid-template-columns: 1fr; } }
 @media (max-width:768px) {
   nav { padding: 1rem 1.5rem; }
@@ -185,11 +201,13 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo">NORY<span class="dot">A</span></div>
   <button class="nav-cta" onclick="document.getElementById('email-input').focus()">Acesso antecipado</button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-orb1"></div>
   <div class="hero-orb2"></div>
@@ -208,13 +226,26 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
     <button class="btn-ghost" onclick="document.getElementById('pilares').scrollIntoView({behavior:'smooth'})">Conhecer a plataforma</button>
   </div>
   <div class="hero-metrics">
-    <div><div class="metric-num">2<span>x</span></div><div class="metric-label">Pilares integrados</div></div>
-    <div><div class="metric-num">9</div><div class="metric-label">Etapas do Builder</div></div>
-    <div><div class="metric-num">1</div><div class="metric-label">Plataforma para founders</div></div>
-    <div><div class="metric-num">&#8734;</div><div class="metric-label">Possibilidades</div></div>
+    <div>
+      <div class="metric-num">2<span>x</span></div>
+      <div class="metric-label">Pilares integrados</div>
+    </div>
+    <div>
+      <div class="metric-num">9</div>
+      <div class="metric-label">Etapas do Builder</div>
+    </div>
+    <div>
+      <div class="metric-num">1</div>
+      <div class="metric-label">Plataforma para founders</div>
+    </div>
+    <div>
+      <div class="metric-num">&#8734;</div>
+      <div class="metric-label">Possibilidades</div>
+    </div>
   </div>
 </section>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">Comunidade de Founders</span>
@@ -238,16 +269,30 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
   </div>
 </div>
 
+<!-- PROBLEMA -->
 <section id="problema" class="problem-bg">
   <div class="s-label">O problema</div>
   <h2 class="s-title">Quem quer criar uma startup<br>enfrenta tr&ecirc;s barreiras reais</h2>
   <div class="problems">
-    <div class="problem-item"><div class="p-num">01</div><div class="p-title">Falta de estrutura</div><div class="p-desc">Existe muito conte&uacute;do &mdash; livros, cursos, podcasts. Mas pouca execu&ccedil;&atilde;o guiada. Saber o que &eacute; Lean Startup n&atilde;o &eacute; o mesmo que aplicar.</div></div>
-    <div class="problem-item"><div class="p-num">02</div><div class="p-title">Dif&iacute;cil achar cofounders</div><div class="p-desc">Encontrar um dev, um PM ou algu&eacute;m de marketing confi&aacute;vel para construir junto &eacute; um dos maiores obst&aacute;culos reais de qualquer founder.</div></div>
-    <div class="problem-item"><div class="p-num">03</div><div class="p-title">Orienta&ccedil;&atilde;o estrat&eacute;gica cara</div><div class="p-desc">Mentores experientes s&atilde;o raros e inacess&iacute;veis. A maioria dos founders toma as decis&otilde;es mais importantes sem nenhum suporte qualificado.</div></div>
+    <div class="problem-item">
+      <div class="p-num">01</div>
+      <div class="p-title">Falta de estrutura</div>
+      <div class="p-desc">Existe muito conte&uacute;do &mdash; livros, cursos, podcasts. Mas pouca execu&ccedil;&atilde;o guiada. Saber o que &eacute; Lean Startup n&atilde;o &eacute; o mesmo que aplicar.</div>
+    </div>
+    <div class="problem-item">
+      <div class="p-num">02</div>
+      <div class="p-title">Dif&iacute;cil achar cofounders</div>
+      <div class="p-desc">Encontrar um dev, um PM ou algu&eacute;m de marketing confi&aacute;vel para construir junto &eacute; um dos maiores obst&aacute;culos reais de qualquer founder.</div>
+    </div>
+    <div class="problem-item">
+      <div class="p-num">03</div>
+      <div class="p-title">Orienta&ccedil;&atilde;o estrat&eacute;gica cara</div>
+      <div class="p-desc">Mentores experientes s&atilde;o raros e inacess&iacute;veis. A maioria dos founders toma as decis&otilde;es mais importantes sem nenhum suporte qualificado.</div>
+    </div>
   </div>
 </section>
 
+<!-- PILARES -->
 <section id="pilares">
   <div class="s-label">A solu&ccedil;&atilde;o</div>
   <h2 class="s-title">Dois pilares. Uma plataforma.</h2>
@@ -280,6 +325,7 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
   </div>
 </section>
 
+<!-- BUILDER -->
 <section class="builder-bg">
   <div class="s-label">Startup Builder</div>
   <h2 class="s-title">Do problema ao investimento.<br>Passo a passo.</h2>
@@ -305,7 +351,7 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
     </div>
     <div class="b-detail-card ai-card">
       <div class="b-detail-title">IA orientando em tempo real <span class="ai-badge">Integrado</span></div>
-      <div class="b-detail-desc">A IA est&aacute; dentro do Builder &mdash; conhece seu contexto e pensa junto com voc&ecirc; em cada decis&atilde;o.</div>
+      <div class="b-detail-desc">A IA est&aacute; dentro do Builder &mdash; conhece seu contexto e pensa junto com voc&ecirc; em cada decis&atilde;o estrat&eacute;gica.</div>
       <div class="b-detail-hints">
         <div class="b-hint"><span class="b-hint-icon">&#8250;</span> Analisa respostas e aponta inconsist&ecirc;ncias</div>
         <div class="b-hint"><span class="b-hint-icon">&#8250;</span> Responde &ldquo;devo pivotar?&rdquo; com base na sua startup</div>
@@ -316,11 +362,17 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
   </div>
 </section>
 
+<!-- DIFERENCIAL -->
 <section>
   <div class="s-label">Diferencial</div>
   <h2 class="s-title">O que existe vs. NORYA</h2>
   <table class="diff-table">
-    <thead><tr><th>O que existe hoje</th><th>NORYA resolve com</th></tr></thead>
+    <thead>
+      <tr>
+        <th>O que existe hoje</th>
+        <th>NORYA resolve com</th>
+      </tr>
+    </thead>
     <tbody>
       <tr><td>Cursos ensinam, ningu&eacute;m executa junto</td><td>Execu&ccedil;&atilde;o guiada passo a passo</td></tr>
       <tr><td>LinkedIn &eacute; rede gen&eacute;rica, n&atilde;o de founders</td><td>Comunidade focada s&oacute; em founders</td></tr>
@@ -331,17 +383,39 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
   </table>
 </section>
 
+<!-- PARA QUEM -->
 <section id="para-quem" class="profiles-bg">
   <div class="s-label">Para quem &eacute;</div>
   <h2 class="s-title">Se voc&ecirc; se v&ecirc; aqui,<br>a NORYA foi feita pra voc&ecirc;</h2>
   <div class="profiles-grid">
-    <div class="profile-card"><span class="profile-icon">&#127891;</span><div class="profile-name">Estudante com ideia</div><div class="profile-pain">Tem a ideia h&aacute; meses mas n&atilde;o sabe por onde come&ccedil;ar a estruturar de verdade.</div><span class="profile-solve">Usar o Builder</span></div>
-    <div class="profile-card"><span class="profile-icon">&#128188;</span><div class="profile-name">Profissional que quer empreender</div><div class="profile-pain">Quer sair do emprego mas precisa de estrutura, clareza e as pessoas certas ao lado.</div><span class="profile-solve">Estrutura + IA</span></div>
-    <div class="profile-card"><span class="profile-icon">&#128640;</span><div class="profile-name">Founder em est&aacute;gio MVP</div><div class="profile-pain">J&aacute; tem algo rodando mas falta feedback real e cofounders para crescer.</div><span class="profile-solve">Comunidade</span></div>
-    <div class="profile-card"><span class="profile-icon">&#9881;</span><div class="profile-name">Dev buscando projeto</div><div class="profile-pain">Tem habilidade t&eacute;cnica mas quer um founder com ideia e vis&atilde;o para construir junto.</div><span class="profile-solve">Matching de cofounders</span></div>
+    <div class="profile-card">
+      <span class="profile-icon">&#127891;</span>
+      <div class="profile-name">Estudante com ideia</div>
+      <div class="profile-pain">Tem a ideia h&aacute; meses mas n&atilde;o sabe por onde come&ccedil;ar a estruturar de verdade.</div>
+      <span class="profile-solve">Usar o Builder</span>
+    </div>
+    <div class="profile-card">
+      <span class="profile-icon">&#128188;</span>
+      <div class="profile-name">Profissional que quer empreender</div>
+      <div class="profile-pain">Quer sair do emprego mas precisa de estrutura, clareza e as pessoas certas ao lado.</div>
+      <span class="profile-solve">Estrutura + IA</span>
+    </div>
+    <div class="profile-card">
+      <span class="profile-icon">&#128640;</span>
+      <div class="profile-name">Founder em est&aacute;gio MVP</div>
+      <div class="profile-pain">J&aacute; tem algo rodando mas falta feedback real e cofounders para crescer.</div>
+      <span class="profile-solve">Comunidade</span>
+    </div>
+    <div class="profile-card">
+      <span class="profile-icon">&#9881;</span>
+      <div class="profile-name">Dev buscando projeto</div>
+      <div class="profile-pain">Tem habilidade t&eacute;cnica mas quer um founder com ideia e vis&atilde;o para construir junto.</div>
+      <span class="profile-solve">Matching de cofounders</span>
+    </div>
   </div>
 </section>
 
+<!-- TEAM -->
 <section id="time">
   <div class="s-label">Os fundadores</div>
   <h2 class="s-title">Quem est&aacute; construindo a NORYA</h2>
@@ -352,7 +426,7 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
       <div class="team-role">Co-founder &mdash; Produto &amp; Estrat&eacute;gia</div>
       <div class="team-bio">Fundou a NORYA para resolver um problema que viveu na pr&aacute;tica: ter a ideia, a vis&atilde;o e a vontade de executar &mdash; mas sem a plataforma certa para fazer isso acontecer. Com foco em produto, mercado e constru&ccedil;&atilde;o de neg&oacute;cios, lidera a vis&atilde;o estrat&eacute;gica e a entrega de valor para cada founder na plataforma.</div>
       <a class="team-link" href="https://www.linkedin.com/in/arthur-gimenez-da-cruz-6a41a1226" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
     </div>
@@ -362,7 +436,7 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
       <div class="team-role">Co-founder &mdash; Opera&ccedil;&otilde;es</div>
       <div class="team-bio">Opera nos bastidores para garantir que tudo funcione. Respons&aacute;vel pelos processos, parcerias e estrutura que fazem a NORYA rodar com consist&ecirc;ncia &mdash; para que o produto certo chegue &agrave;s m&atilde;os dos founders certos, no momento certo.</div>
       <a class="team-link" href="https://www.linkedin.com/in/joao-yamanaka-941a0b278/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
     </div>
@@ -372,13 +446,14 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
       <div class="team-role">Co-founder &mdash; Engenharia &amp; IA</div>
       <div class="team-bio">Desenvolve na interse&ccedil;&atilde;o entre software de ponta e arquiteturas de alta performance. Para ele, escrever c&oacute;digo &eacute; projetar sistemas &mdash; e sistemas bem constru&iacute;dos resolvem problemas que nenhum atalho consegue. &Eacute; o arquiteto t&eacute;cnico por tr&aacute;s da intelig&ecirc;ncia da plataforma.</div>
       <a class="team-link" href="https://www.linkedin.com/in/gustavoguimar%C3%A3esrodrigues/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-orb"></div>
   <div class="cta-green-orb"></div>
@@ -425,6 +500,7 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">NORY<span class="dot">A</span></div>
   <div class="footer-contact">
@@ -438,51 +514,71 @@ footer { padding: 2.5rem 4rem; border-top: 1px solid rgba(255,255,255,.06); disp
 <script>
 var cursor = document.getElementById('cursor');
 var ring = document.getElementById('cursorRing');
-var mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}
+var mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', function(e) {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+});
+function animRing() {
+  rx += (mx-rx) * .12; ry += (my-ry) * .12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+}
 animRing();
-document.querySelectorAll('button,a,input,select').forEach(function(el){
-  el.addEventListener('mouseenter',function(){ring.style.width='48px';ring.style.height='48px';ring.style.borderColor='rgba(0,255,136,.6)';});
-  el.addEventListener('mouseleave',function(){ring.style.width='32px';ring.style.height='32px';ring.style.borderColor='rgba(124,58,237,.6)';});
+document.querySelectorAll('button, a, input, select').forEach(function(el) {
+  el.addEventListener('mouseenter', function() { ring.style.width='48px'; ring.style.height='48px'; ring.style.borderColor='rgba(0,255,136,.6)'; });
+  el.addEventListener('mouseleave', function() { ring.style.width='32px'; ring.style.height='32px'; ring.style.borderColor='rgba(124,58,237,.6)'; });
 });
 
-document.querySelectorAll('.b-step').forEach(function(s){
-  s.addEventListener('click',function(){
-    document.querySelectorAll('.b-step').forEach(function(x){x.classList.remove('active');});
+document.querySelectorAll('.b-step').forEach(function(s) {
+  s.addEventListener('click', function() {
+    document.querySelectorAll('.b-step').forEach(function(x) { x.classList.remove('active'); });
     s.classList.add('active');
   });
 });
 
-function validateEmail(e){var r=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;if(!r.test(e))return false;var d=e.split('@')[1];return d&&d.indexOf('.')!==-1&&d.split('.').pop().length>=2;}
+function validateEmail(e) {
+  var r = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!r.test(e)) return false;
+  var d = e.split('@')[1];
+  return d && d.indexOf('.') !== -1 && d.split('.').pop().length >= 2;
+}
 
-document.getElementById('name-input').addEventListener('input',function(){this.classList.remove('input-error');document.getElementById('name-error').classList.remove('show');});
-document.getElementById('email-input').addEventListener('input',function(){this.classList.remove('input-error');document.getElementById('email-error').classList.remove('show');});
+document.getElementById('name-input').addEventListener('input', function() {
+  this.classList.remove('input-error');
+  document.getElementById('name-error').classList.remove('show');
+});
+document.getElementById('email-input').addEventListener('input', function() {
+  this.classList.remove('input-error');
+  document.getElementById('email-error').classList.remove('show');
+});
 
-function handleSubmit(e){
+function handleSubmit(e) {
   e.preventDefault();
-  var n=document.getElementById('name-input'),em=document.getElementById('email-input');
-  var name=n.value.trim(),email=em.value.trim();
-  var profile=document.getElementById('profile-select').value;
-  var idea=document.getElementById('idea-input').value.trim();
-  var ok=true;
-  if(name.length<3){n.classList.add('input-error');document.getElementById('name-error').classList.add('show');ok=false;}
-  if(!validateEmail(email)){em.classList.add('input-error');document.getElementById('email-error').classList.add('show');ok=false;}
-  if(!ok)return;
-  var btn=document.getElementById('submit-btn');
-  btn.disabled=true;btn.textContent='Enviando...';
-  fetch('https://formspree.io/f/xeernpka',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({name:name,email:email,profile:profile,idea:idea,_subject:'[NORYA] Novo founder: '+name,_replyto:email})
-  }).then(function(r){
-    if(r.ok){document.getElementById('waitlist-form').style.display='none';document.getElementById('form-success').style.display='flex';}
+  var n = document.getElementById('name-input');
+  var em = document.getElementById('email-input');
+  var name = n.value.trim();
+  var email = em.value.trim();
+  var profile = document.getElementById('profile-select').value;
+  var idea = document.getElementById('idea-input').value.trim();
+  var ok = true;
+  if (name.length < 3) { n.classList.add('input-error'); document.getElementById('name-error').classList.add('show'); ok = false; }
+  if (!validateEmail(email)) { em.classList.add('input-error'); document.getElementById('email-error').classList.add('show'); ok = false; }
+  if (!ok) return;
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = 'Enviando...';
+  fetch('https://formspree.io/f/xeernpka', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name: name, email: email, profile: profile, idea: idea, _subject: '[NORYA] Novo founder: ' + name, _replyto: email })
+  }).then(function(r) {
+    if (r.ok) { document.getElementById('waitlist-form').style.display = 'none'; document.getElementById('form-success').style.display = 'flex'; }
     else throw new Error();
-  }).catch(function(){
-    var s=encodeURIComponent('[NORYA] Acesso Antecipado - '+name);
-    var b=encodeURIComponent('Nome: '+name+'\nEmail: '+email+'\nPerfil: '+profile+'\nIdeia: '+idea);
-    window.location.href='mailto:noryahub@gmail.com?subject='+s+'&body='+b;
-    btn.disabled=false;btn.textContent='Garantir meu acesso antecipado \u2192';
+  }).catch(function() {
+    var s = encodeURIComponent('[NORYA] Acesso Antecipado - ' + name);
+    var b = encodeURIComponent('Nome: ' + name + '\nEmail: ' + email + '\nPerfil: ' + profile + '\nIdeia: ' + idea);
+    window.location.href = 'mailto:noryahub@gmail.com?subject=' + s + '&body=' + b;
+    btn.disabled = false; btn.textContent = 'Garantir meu acesso antecipado \u2192';
   });
 }
 </script>
